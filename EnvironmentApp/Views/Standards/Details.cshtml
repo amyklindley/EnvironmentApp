@@ -1,0 +1,99 @@
+﻿@model EnvironmentApp.Models.Standard
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Standard</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.sType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sVCPU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sVCPU)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sRAM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sRAM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sIP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sIP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sOS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sOS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sSize)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sSize)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sSQLVers)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sSQLVers)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sNotes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sNotes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Application.appEnvName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Application.appEnvName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.sName }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

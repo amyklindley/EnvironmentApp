@@ -1,0 +1,83 @@
+﻿@model EnvironmentApp.Models.Application
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Application</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.appEnvName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.appEnvName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.appName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.appName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.appPhase)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.appPhase)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.appOU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.appOU)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.appPool)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.appPool)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.appPOC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.appPOC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.appOwner)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.appOwner)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.appSnowTeam)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.appSnowTeam)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.appCode }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

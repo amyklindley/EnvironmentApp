@@ -1,0 +1,294 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="EnvMgmtModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Applications">
+          <Key>
+            <PropertyRef Name="appCode" />
+          </Key>
+          <Property Name="appCode" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="appEnvName" Type="varchar" MaxLength="150" />
+          <Property Name="appName" Type="varchar" MaxLength="150" />
+          <Property Name="appPhase" Type="varchar" MaxLength="50" />
+          <Property Name="appOU" Type="nchar" MaxLength="10" />
+          <Property Name="appPool" Type="varchar" MaxLength="25" />
+          <Property Name="appPOC" Type="varchar" MaxLength="150" />
+          <Property Name="appOwner" Type="varchar" MaxLength="150" />
+          <Property Name="appSnowTeam" Type="varchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="Drives">
+          <Key>
+            <PropertyRef Name="dCode" />
+          </Key>
+          <Property Name="dCode" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sName" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="diskCSize" Type="int" />
+          <Property Name="diskCName" Type="varchar" MaxLength="50" />
+          <Property Name="diskDSize" Type="int" />
+          <Property Name="diskDName" Type="varchar" MaxLength="50" />
+          <Property Name="diskESize" Type="int" />
+          <Property Name="diskEName" Type="varchar" MaxLength="50" />
+          <Property Name="diskFSize" Type="int" />
+          <Property Name="diskFName" Type="varchar" MaxLength="50" />
+          <Property Name="diskKSize" Type="int" />
+          <Property Name="diskKName" Type="varchar" MaxLength="50" />
+          <Property Name="diskLSize" Type="int" />
+          <Property Name="diskLName" Type="varchar" MaxLength="50" />
+          <Property Name="diskMSize" Type="int" />
+          <Property Name="diskMName" Type="varchar" MaxLength="50" />
+          <Property Name="diskPSize" Type="int" />
+          <Property Name="diskPName" Type="varchar" MaxLength="50" />
+          <Property Name="diskTSize" Type="int" />
+          <Property Name="diskTName" Type="varchar" MaxLength="50" />
+          <Property Name="diskSSize" Type="int" />
+          <Property Name="diskSName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Standards">
+          <Key>
+            <PropertyRef Name="sName" />
+          </Key>
+          <Property Name="sName" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="appCode" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="sType" Type="varchar" MaxLength="50" />
+          <Property Name="sDescription" Type="varchar(max)" />
+          <Property Name="sVCPU" Type="int" />
+          <Property Name="sRAM" Type="int" />
+          <Property Name="sIP" Type="varchar" MaxLength="25" />
+          <Property Name="sOS" Type="varchar" MaxLength="50" />
+          <Property Name="sSize" Type="nchar" MaxLength="10" />
+          <Property Name="sSQLVers" Type="varchar" MaxLength="50" />
+          <Property Name="sNotes" Type="varchar(max)" />
+        </EntityType>
+        <Association Name="FK_Drives_Standards">
+          <End Role="Standards" Type="Self.Standards" Multiplicity="1" />
+          <End Role="Drives" Type="Self.Drives" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Standards">
+              <PropertyRef Name="sName" />
+            </Principal>
+            <Dependent Role="Drives">
+              <PropertyRef Name="sName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Standards_Applications">
+          <End Role="Applications" Type="Self.Applications" Multiplicity="1" />
+          <End Role="Standards" Type="Self.Standards" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Applications">
+              <PropertyRef Name="appCode" />
+            </Principal>
+            <Dependent Role="Standards">
+              <PropertyRef Name="appCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="EnvMgmtModelStoreContainer">
+          <EntitySet Name="Applications" EntityType="Self.Applications" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Drives" EntityType="Self.Drives" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Standards" EntityType="Self.Standards" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Drives_Standards" Association="Self.FK_Drives_Standards">
+            <End Role="Standards" EntitySet="Standards" />
+            <End Role="Drives" EntitySet="Drives" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Standards_Applications" Association="Self.FK_Standards_Applications">
+            <End Role="Applications" EntitySet="Applications" />
+            <End Role="Standards" EntitySet="Standards" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EnvMgmtModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Application">
+          <Key>
+            <PropertyRef Name="appCode" />
+          </Key>
+          <Property Name="appCode" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="appEnvName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="appName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="appPhase" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="appOU" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="appPool" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="appPOC" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="appOwner" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="appSnowTeam" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Standards" Relationship="Self.FK_Standards_Applications" FromRole="Applications" ToRole="Standards" />
+        </EntityType>
+        <EntityType Name="Drive">
+          <Key>
+            <PropertyRef Name="dCode" />
+          </Key>
+          <Property Name="dCode" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="diskCSize" Type="Int32" />
+          <Property Name="diskCName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="diskDSize" Type="Int32" />
+          <Property Name="diskDName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="diskESize" Type="Int32" />
+          <Property Name="diskEName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="diskFSize" Type="Int32" />
+          <Property Name="diskFName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="diskKSize" Type="Int32" />
+          <Property Name="diskKName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="diskLSize" Type="Int32" />
+          <Property Name="diskLName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="diskMSize" Type="Int32" />
+          <Property Name="diskMName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="diskPSize" Type="Int32" />
+          <Property Name="diskPName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="diskTSize" Type="Int32" />
+          <Property Name="diskTName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="diskSSize" Type="Int32" />
+          <Property Name="diskSName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Standard" Relationship="Self.FK_Drives_Standards" FromRole="Drives" ToRole="Standards" />
+        </EntityType>
+        <EntityType Name="Standard">
+          <Key>
+            <PropertyRef Name="sName" />
+          </Key>
+          <Property Name="sName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="appCode" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="sType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="sDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="sVCPU" Type="Int32" />
+          <Property Name="sRAM" Type="Int32" />
+          <Property Name="sIP" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="sOS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="sSize" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="sSQLVers" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="sNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Application" Relationship="Self.FK_Standards_Applications" FromRole="Standards" ToRole="Applications" />
+          <NavigationProperty Name="Drives" Relationship="Self.FK_Drives_Standards" FromRole="Standards" ToRole="Drives" />
+        </EntityType>
+        <Association Name="FK_Standards_Applications">
+          <End Role="Applications" Type="Self.Application" Multiplicity="1" />
+          <End Role="Standards" Type="Self.Standard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Applications">
+              <PropertyRef Name="appCode" />
+            </Principal>
+            <Dependent Role="Standards">
+              <PropertyRef Name="appCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Drives_Standards">
+          <End Role="Standards" Type="Self.Standard" Multiplicity="1" />
+          <End Role="Drives" Type="Self.Drive" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Standards">
+              <PropertyRef Name="sName" />
+            </Principal>
+            <Dependent Role="Drives">
+              <PropertyRef Name="sName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="InvMgmtEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Applications" EntityType="Self.Application" />
+          <EntitySet Name="Drives" EntityType="Self.Drive" />
+          <EntitySet Name="Standards" EntityType="Self.Standard" />
+          <AssociationSet Name="FK_Standards_Applications" Association="Self.FK_Standards_Applications">
+            <End Role="Applications" EntitySet="Applications" />
+            <End Role="Standards" EntitySet="Standards" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Drives_Standards" Association="Self.FK_Drives_Standards">
+            <End Role="Standards" EntitySet="Standards" />
+            <End Role="Drives" EntitySet="Drives" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="EnvMgmtModelStoreContainer" CdmEntityContainer="InvMgmtEntities">
+          <EntitySetMapping Name="Applications">
+            <EntityTypeMapping TypeName="EnvMgmtModel.Application">
+              <MappingFragment StoreEntitySet="Applications">
+                <ScalarProperty Name="appCode" ColumnName="appCode" />
+                <ScalarProperty Name="appEnvName" ColumnName="appEnvName" />
+                <ScalarProperty Name="appName" ColumnName="appName" />
+                <ScalarProperty Name="appPhase" ColumnName="appPhase" />
+                <ScalarProperty Name="appOU" ColumnName="appOU" />
+                <ScalarProperty Name="appPool" ColumnName="appPool" />
+                <ScalarProperty Name="appPOC" ColumnName="appPOC" />
+                <ScalarProperty Name="appOwner" ColumnName="appOwner" />
+                <ScalarProperty Name="appSnowTeam" ColumnName="appSnowTeam" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Drives">
+            <EntityTypeMapping TypeName="EnvMgmtModel.Drive">
+              <MappingFragment StoreEntitySet="Drives">
+                <ScalarProperty Name="dCode" ColumnName="dCode" />
+                <ScalarProperty Name="sName" ColumnName="sName" />
+                <ScalarProperty Name="diskCSize" ColumnName="diskCSize" />
+                <ScalarProperty Name="diskCName" ColumnName="diskCName" />
+                <ScalarProperty Name="diskDSize" ColumnName="diskDSize" />
+                <ScalarProperty Name="diskDName" ColumnName="diskDName" />
+                <ScalarProperty Name="diskESize" ColumnName="diskESize" />
+                <ScalarProperty Name="diskEName" ColumnName="diskEName" />
+                <ScalarProperty Name="diskFSize" ColumnName="diskFSize" />
+                <ScalarProperty Name="diskFName" ColumnName="diskFName" />
+                <ScalarProperty Name="diskKSize" ColumnName="diskKSize" />
+                <ScalarProperty Name="diskKName" ColumnName="diskKName" />
+                <ScalarProperty Name="diskLSize" ColumnName="diskLSize" />
+                <ScalarProperty Name="diskLName" ColumnName="diskLName" />
+                <ScalarProperty Name="diskMSize" ColumnName="diskMSize" />
+                <ScalarProperty Name="diskMName" ColumnName="diskMName" />
+                <ScalarProperty Name="diskPSize" ColumnName="diskPSize" />
+                <ScalarProperty Name="diskPName" ColumnName="diskPName" />
+                <ScalarProperty Name="diskTSize" ColumnName="diskTSize" />
+                <ScalarProperty Name="diskTName" ColumnName="diskTName" />
+                <ScalarProperty Name="diskSSize" ColumnName="diskSSize" />
+                <ScalarProperty Name="diskSName" ColumnName="diskSName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Standards">
+            <EntityTypeMapping TypeName="EnvMgmtModel.Standard">
+              <MappingFragment StoreEntitySet="Standards">
+                <ScalarProperty Name="sName" ColumnName="sName" />
+                <ScalarProperty Name="appCode" ColumnName="appCode" />
+                <ScalarProperty Name="sType" ColumnName="sType" />
+                <ScalarProperty Name="sDescription" ColumnName="sDescription" />
+                <ScalarProperty Name="sVCPU" ColumnName="sVCPU" />
+                <ScalarProperty Name="sRAM" ColumnName="sRAM" />
+                <ScalarProperty Name="sIP" ColumnName="sIP" />
+                <ScalarProperty Name="sOS" ColumnName="sOS" />
+                <ScalarProperty Name="sSize" ColumnName="sSize" />
+                <ScalarProperty Name="sSQLVers" ColumnName="sSQLVers" />
+                <ScalarProperty Name="sNotes" ColumnName="sNotes" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

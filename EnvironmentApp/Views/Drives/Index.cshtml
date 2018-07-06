@@ -1,0 +1,160 @@
+﻿@model IEnumerable<EnvironmentApp.Models.Drive>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.sName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.diskCSize)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.diskCName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.diskDSize)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.diskDName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.diskESize)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.diskEName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.diskFSize)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.diskFName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.diskKSize)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.diskKName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.diskLSize)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.diskLName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.diskMSize)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.diskMName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.diskPSize)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.diskPName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.diskTSize)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.diskTName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.diskSSize)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.diskSName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Standard.appCode)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.sName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.diskCSize)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.diskCName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.diskDSize)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.diskDName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.diskESize)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.diskEName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.diskFSize)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.diskFName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.diskKSize)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.diskKName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.diskLSize)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.diskLName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.diskMSize)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.diskMName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.diskPSize)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.diskPName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.diskTSize)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.diskTName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.diskSSize)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.diskSName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Standard.appCode)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.dCode }) |
+            @Html.ActionLink("Details", "Details", new { id = item.dCode }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.dCode })
+        </td>
+    </tr>
+}
+
+</table>

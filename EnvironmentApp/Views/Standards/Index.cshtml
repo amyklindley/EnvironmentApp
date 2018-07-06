@@ -1,0 +1,94 @@
+﻿@model IEnumerable<EnvironmentApp.Models.Standard>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.sName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sVCPU)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sRAM)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sIP)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sOS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sSize)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sSQLVers)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sNotes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Application.appEnvName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.sName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sVCPU)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sRAM)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sIP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sOS)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sSize)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sSQLVers)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sNotes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Application.appEnvName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.sName }) |
+            @Html.ActionLink("Details", "Details", new { id = item.sName }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.sName })
+        </td>
+    </tr>
+}
+
+</table>
