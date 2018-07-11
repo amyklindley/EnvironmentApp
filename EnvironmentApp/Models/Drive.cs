@@ -20,45 +20,45 @@ namespace EnvironmentApp.Models
         public int dCode { get; set; }
         [Display(Name = "Name")]
         public string sName { get; set; }
-        [Display(Name = "C Size")]
+        [Display(Name = "Disk C Size")]
         public Nullable<int> diskCSize { get; set; }
-        [Display(Name = "C Name")]
+        [Display(Name = "Disk C Name")]
         public string diskCName { get; set; }
-        [Display(Name = "D Size")]
+        [Display(Name = "Disk D Size")]
         public Nullable<int> diskDSize { get; set; }
-        [Display(Name = "D Name")]
+        [Display(Name = "Disk D Name")]
         public string diskDName { get; set; }
-        [Display(Name = "E Size")]
+        [Display(Name = "Disk E Size")]
         public Nullable<int> diskESize { get; set; }
-        [Display(Name = "E Name")]
+        [Display(Name = "Disk E Name")]
         public string diskEName { get; set; }
-        [Display(Name = "F Size")]
+        [Display(Name = "Disk F Size")]
         public Nullable<int> diskFSize { get; set; }
-        [Display(Name = "F Name")]
+        [Display(Name = "Disk F Name")]
         public string diskFName { get; set; }
-        [Display(Name = "K Size")]
+        [Display(Name = "Disk K Size")]
         public Nullable<int> diskKSize { get; set; }
-        [Display(Name = "K Name")]
+        [Display(Name = "Disk K Name")]
         public string diskKName { get; set; }
-        [Display(Name = "L Size")]
+        [Display(Name = "Disk L Size")]
         public Nullable<int> diskLSize { get; set; }
-        [Display(Name = "L Name")]
+        [Display(Name = "Disk L Name")]
         public string diskLName { get; set; }
-        [Display(Name = "M Size")]
+        [Display(Name = "Disk M Size")]
         public Nullable<int> diskMSize { get; set; }
-        [Display(Name = "M Name")]
+        [Display(Name = "Disk M Name")]
         public string diskMName { get; set; }
-        [Display(Name = "P Size")]
+        [Display(Name = "Disk P Size")]
         public Nullable<int> diskPSize { get; set; }
-        [Display(Name = "P Name")]
+        [Display(Name = "Disk P Name")]
         public string diskPName { get; set; }
-        [Display(Name = "T Size")]
+        [Display(Name = "Disk T Size")]
         public Nullable<int> diskTSize { get; set; }
-        [Display(Name = "T Name")]
+        [Display(Name = "Disk T Name")]
         public string diskTName { get; set; }
-        [Display(Name = "S Size")]
+        [Display(Name = "Disk S Size")]
         public Nullable<int> diskSSize { get; set; }
-        [Display(Name = "S Name")]
+        [Display(Name = "Disk S Name")]
         public string diskSName { get; set; }
 
         public virtual Standard Standard { get; set; }

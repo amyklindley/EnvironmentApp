@@ -15,7 +15,7 @@ namespace EnvironmentApp.Classes
         {
             return db.Applications.Select(a => new SelectListItem
             {
-                Text = a.appName,
+                Text = a.appCode,
                 Value = a.appCode
             });
         }
