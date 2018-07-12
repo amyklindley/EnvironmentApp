@@ -22,9 +22,9 @@ namespace EnvironmentApp.Models
         }
 
         [Key]
-        [Display(Name = "Name")]
+        [Display(Name = "Server Name")]
         public string sName { get; set; }
-        [Display(Name = "Code")]
+        [Display(Name = "Application")]
         public string appCode { get; set; }
         [Display(Name = "Type")]
         public string sType { get; set; }

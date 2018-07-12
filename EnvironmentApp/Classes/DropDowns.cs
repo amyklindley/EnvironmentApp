@@ -29,5 +29,14 @@ namespace EnvironmentApp.Classes
             });
         }
 
+        public static IEnumerable<SelectListItem> AppList()
+        {
+            return db.Applications.Select(a => new SelectListItem
+            {
+                Text = a.appEnvName,
+                Value = a.appCode
+            });
+        }
+
     }
 }

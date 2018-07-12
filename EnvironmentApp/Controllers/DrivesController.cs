@@ -24,7 +24,7 @@ namespace EnvironmentApp.Controllers
 
         // GET: JSON string for servers list
         [System.Web.Mvc.HttpPost]
-        //[OutputCache(NoStore = true, Duration = 0, VaryByParam = "None")]
+        [OutputCache(NoStore = true, Duration = 0, VaryByParam = "None")]
         public ActionResult GetServers([FromBody]string code)
         {
             var availStandards = (from s in _db.Standards
