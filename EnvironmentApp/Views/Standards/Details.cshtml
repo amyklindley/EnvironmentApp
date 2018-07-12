@@ -1,97 +1,37 @@
 ﻿@model EnvironmentApp.Models.Standard
-
 @{
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
-
 <div>
-    <h4>Standard</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.sType)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.sType)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.sDescription)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.sDescription)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.sVCPU)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.sVCPU)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.sRAM)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.sRAM)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.sIP)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.sIP)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.sOS)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.sOS)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.sSize)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.sSize)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.sSQLVers)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.sSQLVers)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.sNotes)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.sNotes)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Application.appEnvName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Application.appEnvName)
-        </dd>
-
-    </dl>
+    <div class="card text-white bg-secondary mb-3" style="max-width: 25rem;">
+        <div class="card-header"><h4>
+               @Model.Application.appName<br>
+            </h4>
+        </div>
+        <div class="card-body">
+            @*<h5 class="card-title">Dark card title</h5>*@
+            <h5 class="card-text">Server Name: @Model.sName</h5>
+            <p class="card-text text-black-50">Environment Name: @Model.Application.appEnvName</p>
+            <div class="row">
+                <div class="col-sm-6 col-md-6 col-lg-6">
+                    <p class="card-text text-black-50">vCPU: @Model.sVCPU</p>
+                    <p class="card-text text-black-50">RAM: @Model.sRAM</p>
+                    <p class="card-text text-black-50">IP: @Model.sIP</p>
+                </div>
+                <div class="col-sm-6 col-md-6 col-lg-6">
+                    <p class="card-text text-black-50">OS: @Model.sOS</p>
+                    <p class="card-text text-black-50">Size: @Model.sSize</p>
+                    <p class="card-text text-black-50">SQL Version: @Model.sSQLVers</p>
+                </div>
+            </div>
+            <p><br /></p>
+            <p class="card-text text-black-50">Description: @Model.sDescription</p>
+            <p class="card-text text-black-50">Notes: @Model.sNotes</p>
+        </div>
+    </div>
+   
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.sName }) |

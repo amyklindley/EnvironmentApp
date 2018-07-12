@@ -1,83 +1,77 @@
 ﻿@model EnvironmentApp.Models.Application
-
 @{
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
-
+<h2 class="text-center">Application Details</h2>
+<hr />
 <div>
-    <h4>Application</h4>
+    <div class="row">
+        <div class="col-sm-12">
+            <div id="appCard" class="card text-white bg-secondary mb-3 shadow">
+                <div class="card-header text-center">
+                    <span class="badge badge-pill badge-primary float-right" style="margin: .5%">Phase @Model.appPhase</span>
+                    <h4>@Model.appName</h4>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-text text-center">Environment Name: @Model.appEnvName</h5>
+                    <div class="row">
+                        <div class="col-sm-4 col-md-4 col-lg-4">
+                            <p class="card-text text-black-50">Point of Contact: @Model.appPOC</p>
+                            <p class="card-text text-black-50">OU Folder: @Model.appOU</p>
+                        </div>
+                        <div class="col-sm-4 col-md-4 col-lg-4">
+                            <p class="card-text text-black-50">Application Owner: @Model.appOwner</p>
+                            <p class="card-text text-black-50">Pool: @Model.appPool</p>
+                        </div>
+                        <div class="col-sm-4 col-md-4 col-lg-4">
+                            <p class="card-text text-black-50">Snow Team: @Model.appSnowTeam</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.appEnvName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.appEnvName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.appName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.appName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.appPhase)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.appPhase)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.appOU)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.appOU)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.appPool)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.appPool)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.appPOC)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.appPOC)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.appOwner)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.appOwner)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.appSnowTeam)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.appSnowTeam)
-        </dd>
-
-    </dl>
+    <div class="row">
+        <div class="card-columns">
+            @{
+            foreach (var standard in Model.Standards)
+            {
+                    <div class="card text-white bg-secondary mb-3 shadow" style="min-height: 450px">
+                        <div class="card-header">
+                            <span class="badge badge-pill badge-primary float-right" style="padding: 1.5%">@standard.sType</span>
+                            <h4>
+                                @standard.sName
+                            </h4>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-text">Server Name: @standard.sName</h5>
+                            <p class="card-text text-black-50">Environment Name: @Model.appEnvName</p>
+                            <div class="row">
+                                <div class="col-sm-6 col-md-6 col-lg-6">
+                                    <p class="card-text text-black-50">vCPU: @standard.sVCPU</p>
+                                    <p class="card-text text-black-50">RAM: @standard.sRAM</p>
+                                    <p class="card-text text-black-50">IP: @standard.sIP</p>
+                                </div>
+                                <div class="col-sm-6 col-md-6 col-lg-6">
+                                    <p class="card-text text-black-50">OS: @standard.sOS</p>
+                                    <p class="card-text text-black-50">Size: @standard.sSize</p>
+                                    <p class="card-text text-black-50">SQL Version: @standard.sSQLVers</p>
+                                </div>
+                            </div>
+                            <p><br /></p>
+                            <p class="card-text text-black-50">Description: @standard.sDescription</p>
+                            <p class="card-text text-black-50">Notes: @standard.sNotes</p>
+                        </div>
+                    </div>
+        }
+            }
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.appCode }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.appCode }, new { @class = "btn btn-outline-primary btn-sm" }) |
+        @Html.ActionLink("Back to List >>", "Index", null, new { @class = "btn btn-outline-primary btn-sm" })
+    </p>
