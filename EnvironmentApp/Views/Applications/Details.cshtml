@@ -11,7 +11,7 @@
         <div class="col-sm-12">
             <div id="appCard" class="card text-white bg-secondary mb-3 shadow">
                 <div class="card-header text-center">
-                    <span class="badge badge-pill badge-primary float-right" style="margin: .5%">Phase @Model.appPhase</span>
+                    <span class="badge badge-pill badge-primary float-right shadow" style="margin: .5%">Phase @Model.appPhase</span>
                     <h4>@Model.appName</h4>
                 </div>
                 <div class="card-body">
@@ -41,7 +41,7 @@
             {
                     <div class="card text-white bg-secondary mb-3 shadow" style="min-height: 450px">
                         <div class="card-header">
-                            <span class="badge badge-pill badge-primary float-right" style="padding: 1.5%">@standard.sType</span>
+                            <span class="badge badge-pill badge-primary float-right shadow" style="padding: 1.5%">@standard.sType</span>
                             <h4>
                                 @standard.sName
                             </h4>
@@ -72,6 +72,6 @@
     </div>
 </div>
     <p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.appCode }, new { @class = "btn btn-outline-primary btn-sm" }) |
-        @Html.ActionLink("Back to List >>", "Index", null, new { @class = "btn btn-outline-primary btn-sm" })
+        @Html.ActionLink("Edit", "Edit", new { id = Model.appCode }, new { @class = "btn btn-outline-primary btn-sm shadow" }) |
+        @Html.ActionLink("Back to List >>", "Index", null, new { @class = "btn btn-outline-primary btn-sm shadow" })
     </p>
