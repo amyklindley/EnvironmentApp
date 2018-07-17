@@ -27,6 +27,7 @@ namespace EnvironmentApp
                       "~/Content/bootstrap.css",
                       "~/Content/bootstrap.lux.css",
                       "~/Content/site.css"));
+            bundles.Add(new StyleBundle("~/Content/fontawesome").Include("~/Content/font-awesome.css"));
         }
     }
 }

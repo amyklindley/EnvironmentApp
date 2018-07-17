@@ -6,18 +6,24 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/fontawesome")
 </head>
 <body>
     <nav class="navbar navbar-expand-sm navbar-dark bg-primary fixed-top">
         <div class="container">
             <a href="@Url.Action("Index", "Home")" class="navbar-brand">
-                <img src="~/Images/CHS_logo_TM.png" title="title" alt="additional title" style="height:30px; width:175px" />
+                <img src="~/Images/CHS_logo_TM.png" title="title" alt="additional title" style="height:30px; width:186px" />
             </a>
 
             <div class="collapse navbar-collapse" id="navbarColor01">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })
+                        <a href="@Url.Action("Index", "Home")" class="nav-link">
+                            <i class="fa fa-home" aria-hidden="true"></i>
+                            <span>
+                                <strong>Home</strong>
+                            </span>
+                        </a>
                     </li>
                     <li class="nav-item">
                         @Html.ActionLink("Applications", "Index", "Applications", new { area = "" }, new { @class = "nav-link" })
