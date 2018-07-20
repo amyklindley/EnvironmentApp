@@ -218,7 +218,7 @@
     <Content Include="Images\chs2.jpg" />
     <Content Include="Images\CHS_logo_TM.png" />
     <Content Include="Images\CHS_logo_xsm.jpg" />
-    <Content Include="Images\CroppedFoxWalk.jpg" />
+    <Content Include="Images\finalFox.png" />
     <Content Include="Models\EnvInvModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>EnvInvModel.edmx</DependentUpon>
@@ -326,6 +326,8 @@
     <Content Include="Views\Drives\Details.cshtml" />
     <Content Include="Views\Drives\Edit.cshtml" />
     <Content Include="Views\Drives\Index.cshtml" />
+    <Content Include="Views\Applications\_AppFormPartial.cshtml" />
+    <Content Include="Views\Standards\_StandardForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -26,13 +26,19 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        @Html.ActionLink("Applications", "Index", "Applications", new { area = "" }, new { @class = "nav-link" })
+                        <a href="@Url.Action("Index", "Applications")" class="nav-link">
+                            <i class="fa fa-mobile" aria-hidden="true"></i>
+                            <span>
+                                <strong>Applications</strong>
+                            </span>
+                        </a>
+                        @*@Html.ActionLink("Applications", "Index", "Applications", new { area = "" }, new { @class = "nav-link" })*@
                     </li>
                     <li class="nav-item">
                         @Html.ActionLink("Owners", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Admin</a>
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-wrench" style="padding-right:3px"></i>Admin</a>
                         <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 39px, 0px); top: 0px; left: 0px; will-change: transform;">
                             <a class="dropdown-item" href="#">Add Applications</a>
                             <a class="dropdown-item" href="#">Add Something?</a>
@@ -42,6 +48,7 @@
                         </div>
                     </li>
                 </ul>
+                <img src="~/Images/finalFox.png" class="float-right" title="Fox Logo" alt="Log of Fox" style="height:41px; width:100px" />
             </div>
         </div>
     </nav>
@@ -49,8 +56,14 @@
         @RenderBody()
         <hr />
         <footer>
-            <img src="~/Images/CroppedFoxWalk.jpg" title="Fox Logo" alt="Log of Fox" style="height:106px; width:200px" /><span class="font-weight-bold"> - Fox Walk Productions</span>
-            @*<p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>*@
+            <div class="row">
+                <div class="col-sm-6">
+                    <p>&copy; @DateTime.Now.Year  - Fox Walk Productions</p>
+                </div>
+                <div class="col-sm-6">
+                    <img class="float-right" src="~/Images/finalFox.png" title="Fox Logo" alt="Log of Fox" style="height:41px; width:100px" />
+                </div>
+            </div>
         </footer>
     </div>
 
