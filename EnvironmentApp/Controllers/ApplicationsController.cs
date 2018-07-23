@@ -14,6 +14,11 @@ namespace EnvironmentApp.Controllers
     {
         private InvMgmtEntities db = new InvMgmtEntities();
 
+        public ActionResult ModalPopUp()
+        {
+            return View();
+        }
+
         // GET: Applications
         public ActionResult Index()
         {
